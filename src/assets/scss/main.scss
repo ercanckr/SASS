@@ -1,1 +1,349 @@
 @import "normalize";
+
+/*SCSS ile seçim işlemlerinin yapılması */
+.kapsayici {
+  .pr1 {
+    font-size: 14px;
+    color: red;
+  }
+  .pr2 {
+    font-size: 20px;
+    color: blue;
+  }
+}
+
+/*DİĞER BİR YÖNTEM & simgesi ile üstündeki ilk elemanın seçilmesini sağlarız
+bu şekilde tanımlamalara Referans tipinde tanımlama denir*/
+.kapsayici2 {
+  .pr1 {
+    font-size: 14px;
+    color: red;
+    a {
+      color: orange;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .pr2 {
+    font-size: 20px;
+    color: blue;
+  }
+}
+
+/* Alan seçici işlemi örnek 1*/
+
+.kapsayici3 {
+  .pr1 {
+    font-size: 14px;
+    color: blue;
+  }
+  .pr2 {
+    @extend .pr1;
+  }
+}
+
+/* Alan seçici işlemi örnek 2*/
+.kapsayici4 {
+  %sinif {
+    font-size: 14px;
+    color: blue;
+  }
+  .pr1 {
+    @extend %sinif;
+  }
+  .pr2 {
+    @extend %sinif;
+  }
+}
+
+/*iç içe özellik aktarma işlemi */
+
+.kapsayici5 {
+  .pr1 {
+    font: {
+      family: sans-serif;
+      size: 24px;
+      style: normal;
+      weight: bold;
+    }
+  }
+}
+
+/*Değişken Kavramı $ işareti ardından değişken adı yazılır sonra değer yazılır */
+
+$metinboyutu: 25px;
+$renk: red;
+$metinkalinlik: bold;
+
+.kapsayici5 {
+  p {
+    font-size: $metinboyutu;
+    color: $renk;
+    font-weight: $metinkalinlik;
+  }
+}
+
+/*Veri Türleri sayi(Number),metin(String),renk(Color),boolean*/
+
+/*sayisal ifadeler*/
+$sayi1: 15;
+$sayi2: 16;
+
+/*metinsel ifadeler*/
+$ad: "Ercan Çakır";
+
+/*renk ifadeleri*/
+$birinciRenk: #333;
+$ikinciRenk: blue;
+
+/*boolean tipi ifadeleri*/
+$cevap: true;
+$cevap2: false;
+
+/*Veri Türleri Yazım Formatları*/
+$sinif: "IlkParagraf";
+
+/*#{Değişken adı yazılır} ==> Bu bir Kalıp*/
+
+.kapsayici6 {
+  p.#{$sinif} {
+    font-size: $metinboyutu;
+    color: $ikinciRenk;
+  }
+}
+
+/*Operatörlerin Kullanılması*/
+
+.kapsayici7 {
+  h1 {
+    font-size: 15px+15px; /*toplama operatörü*/
+  }
+
+  #paragraf1 {
+    font-size: 2 * (15px+10px); /*çarpma operatörü*/
+  }
+
+  #paragraf2 {
+    font-size: 15px-5px; /*çıkartma operatörü*/
+  }
+  #paragraf3 {
+    font-size: (30px)/2; /*bölme operatörü*/
+  }
+}
+
+/*Değişken Yapılarıyla Operatörlerin Kullanılması*/
+
+$boyut1: 15px;
+$boyut2: 5px;
+
+$renk1: #f00;
+$renk2: #222;
+
+.kapsayici8 {
+  h1 {
+    font-size: $boyut1 + $boyut2;
+    color: $renk1 + $renk2;
+  }
+}
+
+/*Partials Yapısı ve @import deyimi Kullanılması*/
+@import "baslik.scss";
+@import "paragraf.scss";
+
+/*Kontrol Deyimleri İf() yapısı Kullanılması */
+
+/* 
+if(şart,doğru,yanlış) 
+
+@if şart{
+
+}
+
+@if şart{
+
+}elseif{
+
+  }else{
+
+  }
+}
+*/
+
+$deger1: 15;
+$deger2: 16;
+
+.kapsayici10 {
+  h1 {
+    color: if(18>17, green, red);
+  }
+  h2 {
+    color: if(18==17, green, red);
+  }
+  h3 {
+    @if 18>17 {
+      color: green;
+    } @else {
+      color: red;
+    }
+  }
+  h4 {
+    @if 18<17 {
+      color: green;
+    } @else {
+      color: red;
+    }
+  }
+  h5 {
+    @if $deger1>$deger2 {
+      color: green;
+    } @else if $deger1<$deger2 {
+      color: red;
+    } @else {
+      color: blue;
+    }
+  }
+}
+
+/*Döngü Yapıları For yapısının Kullanılması */
+/*through : Belirtilen sınırlar (son değer) dahil olur
+to : Belirtilen sınırlar (son değer) dahil olmaz */
+
+/* 
+@for $DeğişkenAdı from Başlangıç through Bitiş {
+  1
+  2
+  3
+  4
+  5
+} 
+ 
+ */
+
+/* 
+ @for $DeğişkenAdı from Başlangıç to Bitiş {
+    1
+    2
+    3
+    4
+    5
+ } 
+ */
+
+.kapsayici11 {
+  @for $sayac from 1 through 4 {
+    p.p#{$sayac} {
+      font-size: 10px * $sayac;
+      color: #812 * $sayac;
+    }
+  }
+}
+
+.kapsayici12 {
+  @for $sayac from 1 to 4 {
+    p.p#{$sayac} {
+      font-size: 10px * $sayac;
+      color: #812 * $sayac;
+      padding-left: $sayac * 5px;
+    }
+  }
+}
+
+/*Döngü Yapıları While yapısının Kullanılması  */
+
+/*
+@while şart{
+
+}
+*/
+
+$i: 4;
+$boyut: 10px;
+
+.kapsayici13 {
+  @while $i>0 {
+    .p#{$i} {
+      font-size: $boyut;
+    }
+    $boyut: $boyut * 2;
+
+    $i: $i - 1;
+  }
+}
+
+/*@mixin Kavramı*/
+
+/*@mixin değişken{
+
+} şeklinde tanımlanır*/
+
+@mixin kenarlikislemleri($RadiusDegeri ,$KenarGenisligi){
+
+
+  border: $KenarGenisligi solid red;
+  border-radius: $RadiusDegeri;
+  padding: 20px;
+
+}
+.kapsayici14{
+
+  .kutu1{
+    @include kenarlikislemleri(10px,2px);
+  }
+  .kutu2{
+    @include kenarlikislemleri(15px,3px);
+  }
+
+  .kutu3{
+    @include kenarlikislemleri(20px,4px);
+  }
+
+  .kutu4{
+    @include kenarlikislemleri(25px,5px);
+  }
+}
+
+/*Sass İle Fonksiyon Tanımlama Ve Kullanımı*/
+/*
+@function DeğişkenAdı (parametre){
+
+  @return GeriyeDeğerDöndür
+
+}  */
+
+$baslangic:10px;
+
+@function BoyutAyarla ($satir){
+
+  @return $satir * $baslangic;
+
+} 
+
+.kapsayici15{
+
+.birinci{
+  font-size: BoyutAyarla(1);
+}
+.ikinci{
+  font-size: BoyutAyarla(2);
+}
+.ucuncu{
+  font-size: BoyutAyarla(3);
+}
+.dorduncu{
+  font-size: BoyutAyarla(4);
+}
+.besinci{
+  font-size: BoyutAyarla(5);
+}
+
+}
+
+
+@for $i from 1 to 6{
+  #p#{$i}{
+    font-size: BoyutAyarla($i);
+  }
+}

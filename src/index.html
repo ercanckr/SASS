@@ -1,15 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCSS</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <h1>HTML Starter</h1>
-</body>
-
+  <body>
+    <h3>/*SCSS ile seçim işlemlerinin yapılması */</h3>
+    <div class="kapsayici">
+      <p class="pr1">Paragraf 1</p>
+      <p class="pr2">Paragraf 2</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>
+      /*DİĞER BİR YÖNTEM & simgesi ile üstündeki ilk elemanın seçilmesini
+      sağlarız bu şekilde tanımlamalara Referans tipinde tanımlama denir*/
+    </h3>
+    <div class="kapsayici2">
+      <p class="pr1"><a href="#">Ana Sayfa</a></p>
+      <p class="pr2">Paragraf 2</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/* Alan seçici işlemi örnek 1*/</h3>
+    <div class="kapsayici3">
+      <p class="pr1">Paragraf 1</p>
+      <p class="pr2">Paragraf 2</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/* Alan seçici işlemi örnek 2*/</h3>
+    <div class="kapsayici4">
+      <p class="pr1">Paragraf 1</p>
+      <p class="pr2">Paragraf 2</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/*iç içe özellik aktarma işlemi */</h3>
+    <div class="kapsayici5">
+      <p class="pr1">Paragraf 1</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/*Veri Türleri sayi(Number),metin(String),renk(Color),boolean*/</h3>
+    <div class="kapsayici5">
+      <p>Paragraf 1</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/*Veri Türleri Yazım Formatları*/</h3>
+    <div class="kapsayici6">
+      <p class="IlkParagraf">Paragraf 1</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/*Operatörlerin Kullanılması*/</h3>
+    <div class="kapsayici7">
+      <h1>Lorem, ipsum.</h1>
+      <p id="paragraf1">Lorem ipsum dolor sit.</p>
+      <p id="paragraf2">Lorem ipsum dolor sit.</p>
+      <p id="paragraf3">Lorem ipsum dolor sit.</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/*Değişken Yapılarıyla Operatörlerin Kullanılması*/</h3>
+    <div class="kapsayici8">
+      <h1>Lorem, ipsum.</h1>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/*Partials Yapısı ve @import deyimi Kullanılması*/</h3>
+    <div class="kapsayici9">
+      <h1>Başlık-1</h1>
+      <h2>Başlık-2</h2>
+      <h3>Başlık-3</h3>
+      <p>Paragraf</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/*Kontrol Deyimleri İf() yapısı Kullanılması */</h3>
+    <div class="kapsayici10">
+      <h1>Başlık-1</h1>
+      <h2>Başlık-2</h2>
+      <h3>Başlık-3</h3>
+      <h4>Başlık-4</h4>
+      <h5>Başlık-5</h5>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/*Döngü Yapıları For yapısının Kullanılması through */</h3>
+    <div class="kapsayici11">
+      <p class="p1">Birinci Paragraf</p>
+      <p class="p2">İkinci Paragraf</p>
+      <p class="p3">Üçüncü Paragraf</p>
+      <p class="p4">Dördüncü Paragraf</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/*Döngü Yapıları For yapısının Kullanılması to */</h3>
+    <div class="kapsayici12">
+      <p class="p1">Birinci Paragraf</p>
+      <p class="p2">İkinci Paragraf</p>
+      <p class="p3">Üçüncü Paragraf</p>
+      <p class="p4">Dördüncü Paragraf</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/*Döngü Yapıları While yapısının Kullanılması  */</h3>
+    <div class="kapsayici13">
+      <p class="p1">Birinci Paragraf</p>
+      <p class="p2">İkinci Paragraf</p>
+      <p class="p3">Üçüncü Paragraf</p>
+      <p class="p4">Dördüncü Paragraf</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/*@mixin Kavramı*/</h3>
+    <div class="kapsayici14">
+      <p class="kutu1">Birinci kutu</p>
+      <p class="kutu2">İkinci kutu</p>
+      <p class="kutu3">Üçüncü kutu</p>
+      <p class="kutu4">Dördüncü kutu</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/*Sass İle Fonksiyon Tanımlama Ve Kullanımı*/</h3>
+    <div class="kapsayici15">
+      <p class="birinci">Birinci Satır</p>
+      <p class="ikinci">İkinci Satır</p>
+      <p class="ucuncu">Üçüncü Satır</p>
+      <p class="dorduncu">Dördüncü Satır</p>
+      <p class="besinci">Beşinci Satır</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <h3>/*Sass İle Fonksiyon Tanımlama Ve Kullanımı2 */</h3>
+    <div id="kapsayici16">
+      <p id="p1">Birinci Satır</p>
+      <p id="p2">İkinci Satır</p>
+      <p id="p3">Üçüncü Satır</p>
+      <p id="p4">Dördüncü Satır</p>
+      <p id="p5">Beşinci Satır</p>
+    </div>
+    <br />
+    <hr />
+    <br />
+  </body>
 </html>
